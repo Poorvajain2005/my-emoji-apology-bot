@@ -1,6 +1,66 @@
+import { useState, useEffect } from 'react';
 import EmojiBot from './EmojiBot';
 
 const ApologyMessage = () => {
+  const messages = [
+    {
+      title: "I'm Sorry, Baby 🥺",
+      main: "I messed up like a phone with 1% battery - completely useless! 📱💔",
+      sub: "You're my charger, my WiFi, and my whole world. Please don't put me in airplane mode! ✈️💕"
+    },
+    {
+      title: "Oops, I Did It Again 🙈",
+      main: "I'm like a GPS that took a wrong turn - totally lost without your forgiveness! 🗺️💫",
+      sub: "You're my destination, my home, and my favorite place to be. Guide me back to your heart? 🏠💖"
+    },
+    {
+      title: "My Heart is Broken 💔",
+      main: "I feel like a cookie that crumbled - all in pieces without you! 🍪😭",
+      sub: "You're the milk to my cookie, the perfect match. Please help me become whole again! 🥛✨"
+    },
+    {
+      title: "I'm a Hot Mess 🔥",
+      main: "I'm like pizza without cheese - technically still pizza, but what's the point?! 🍕😢",
+      sub: "You're my cheese, my topping, my everything that makes life delicious! 🧀💕"
+    },
+    {
+      title: "Error 404: Brain Not Found 🤖",
+      main: "My brain.exe stopped working when I hurt you. Currently rebooting with love.exe! 💻💙",
+      sub: "You're my antivirus, my system update, my everything that keeps me running smoothly! 🛡️💖"
+    },
+    {
+      title: "I'm Pawsitively Sorry 🐕",
+      main: "I'm like a puppy who chewed your favorite shoes - guilty but still hoping for cuddles! 👟🥺",
+      sub: "You're my favorite human, my treat dispenser, my whole pack. Forgive this silly pup? 🦴💕"
+    },
+    {
+      title: "Weather Update: Stormy ⛈️",
+      main: "There's a 100% chance of tears with scattered apologies throughout the day! 🌧️😭",
+      sub: "You're my sunshine after the storm, my rainbow, my perfect weather. Clear my skies? 🌈☀️"
+    },
+    {
+      title: "Mission: Impossible 🎬",
+      main: "Mission: Be perfect girlfriend. Status: FAILED. Requesting backup from your heart! 💣💔",
+      sub: "You're my Tom Cruise, my action hero, my blockbuster love story. Ready for the sequel? 🎭💖"
+    },
+    {
+      title: "Plant Parent Fail 🌱",
+      main: "I'm like a cactus trying to be a rose - prickly when I should be soft! 🌵🌹",
+      sub: "You're my gardener, my sunshine, my water. Help me bloom into the girlfriend you deserve? 🌸💕"
+    },
+    {
+      title: "Netflix & Chill... NOT 📺",
+      main: "I paused our love story at the worst cliffhanger. Can we please press play? ⏯️💔",
+      sub: "You're my binge-worthy series, my happy ending, my favorite show. Don't cancel our subscription! 🍿💖"
+    }
+  ];
+
+  const [currentMessage, setCurrentMessage] = useState(messages[0]);
+
+  useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * messages.length);
+    setCurrentMessage(messages[randomIndex]);
+  }, []);
   return (
     <div className="max-w-4xl mx-auto text-center space-y-8">
       <div className="relative">
@@ -18,38 +78,22 @@ const ApologyMessage = () => {
         />
         
         <div className="bg-card/80 backdrop-blur-sm rounded-3xl p-12 shadow-romantic border border-primary/20">
-          <h1 className="text-5xl md:text-7xl font-bold bg-gradient-warm bg-clip-text text-transparent mb-8">
-            I'm Sorry, Baby
+          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-warm bg-clip-text text-transparent mb-8">
+            {currentMessage.title}
           </h1>
           
           <div className="space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
             <p className="flex items-center justify-center gap-3">
+              <EmojiBot emoji="💔" size="sm" animation="pulse" />
+              {currentMessage.main}
               <EmojiBot emoji="🥺" size="sm" animation="pulse" />
-              I know I messed up and I feel terrible about it
-              <EmojiBot emoji="😔" size="sm" animation="pulse" />
-            </p>
-            
-            <p className="flex items-center justify-center gap-3">
-              <EmojiBot emoji="💝" size="sm" animation="float" />
-              You mean the absolute world to me
-              <EmojiBot emoji="🌍" size="sm" animation="float" />
-            </p>
-            
-            <p className="flex items-center justify-center gap-3">
-              <EmojiBot emoji="🙏" size="sm" animation="bounce" />
-              Please forgive me, my love
-              <EmojiBot emoji="💖" size="sm" animation="pulse" />
             </p>
             
             <div className="bg-gradient-soft rounded-2xl p-8 mt-8">
-              <p className="text-2xl font-semibold text-primary mb-4">
+              <p className="text-xl font-semibold text-primary mb-4">
                 <EmojiBot emoji="✨" size="sm" animation="pulse" className="mr-2" />
-                You are my everything
+                {currentMessage.sub}
                 <EmojiBot emoji="✨" size="sm" animation="pulse" className="ml-2" />
-              </p>
-              <p className="text-lg">
-                Your smile lights up my day, your laugh is my favorite sound, 
-                and your love makes me want to be better every single day.
               </p>
             </div>
           </div>
