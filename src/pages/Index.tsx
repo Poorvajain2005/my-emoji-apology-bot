@@ -331,7 +331,7 @@ const Index = () => {
                     variant="soft" 
                     size="lg" 
                     className="text-lg px-8"
-                    onClick={() => window.open('https://wa.me/917869712770', '_blank')}
+                    onClick={() => window.open('https://instagram.com/direct/t/poorva_pj_', '_blank')}
                   >
                     <EmojiBot emoji="🤗" size="sm" className="mr-2" />
                     Let's Talk
